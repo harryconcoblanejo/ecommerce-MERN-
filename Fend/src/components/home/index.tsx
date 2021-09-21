@@ -7,8 +7,8 @@ import {
   Switch,
   NavLink,
 } from 'react-router-dom'
-import { signout } from '../../actions'
-import { RootState } from '../../reducers'
+import { signout } from '../../redux/actions'
+import { RootState } from '../../redux/reducers'
 import Header from '../header/Header'
 import '../home/homeStyles.css'
 

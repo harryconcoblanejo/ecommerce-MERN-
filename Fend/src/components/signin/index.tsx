@@ -2,8 +2,8 @@ import React, { ChangeEvent, Fragment, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { BrowserRouter as Router, NavLink, Redirect } from 'react-router-dom'
-import { login } from '../../actions/index'
-import { RootState } from '../../reducers/index'
+import { login } from '../../redux/actions/index'
+import { RootState } from '../../redux/reducers/index'
 
 export type singinUser = {
   email: string

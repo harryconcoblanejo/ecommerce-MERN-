@@ -1,6 +1,6 @@
 import { authconstants } from './constants'
-import { singinUser } from '../components/signin'
-import axios from '../helpers/axios'
+import { singinUser } from '../../components/signin'
+import axios from '../../helpers/axios'
 import { Dispatch } from 'redux'
 
 export const login = (user: singinUser) => {

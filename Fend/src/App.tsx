@@ -6,8 +6,8 @@ import Signin from './components/signin'
 import Signup from './components/signup'
 import PrivateRoute from './components/HOC/privateRoute'
 import { useDispatch, useSelector } from 'react-redux'
-import { isUserLoggedIn } from './actions'
-import { RootState } from './reducers'
+import { isUserLoggedIn } from './redux/actions'
+import { RootState } from './redux/reducers'
 
 export const App = () => {
   const dispatch = useDispatch()

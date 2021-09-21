@@ -8,7 +8,7 @@ import {
   NavLink,
   Redirect,
 } from 'react-router-dom'
-import { RootState } from '../../reducers'
+import { RootState } from '../../redux/reducers'
 
 const Signup = () => {
   const auth = useSelector((state: RootState) => state.auth)

@@ -1,0 +1,33 @@
+import { Fragment, useEffect } from 'react'
+import FormTest from './components/formTest/formTestMercadoLibre'
+import { Route, Switch } from 'react-router-dom'
+import Home from './components/home'
+import Signin from './components/signin'
+import Signup from './components/signup'
+import PrivateRoute from './components/HOC/privateRoute'
+import { useDispatch, useSelector } from 'react-redux'
+import { isUserLoggedIn } from './actions'
+import { RootState } from './reducers'
+
+export const App = () => {
+  const dispatch = useDispatch()
+  const auth = useSelector((state: RootState) => state.auth)
+
+  useEffect(() => {
+    if (!auth.authenticate) {
+      dispatch(isUserLoggedIn())
+    }
+  }, [])
+  return (
+    <Fragment>
+      <Switch>
+        <PrivateRoute path="/" exact component={Home} />
+        <Route path="/signin" component={Signin} />
+        <Route path="/signup" component={Signup} />
+      </Switch>
+
+      {/* <FormTest /> */}
+    </Fragment>
+  )
+}
+//

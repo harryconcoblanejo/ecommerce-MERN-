@@ -1,0 +1,31 @@
+
+GET http://localhost:3000/products/60dd1206e7c27c2914d3417a
+###
+
+GET http://localhost:3000/products
+###
+
+POST http://localhost:3000/products/createProduct
+Content-Type: application/json
+
+{
+"productName": "daleeeeeee",
+"description": "daleeeeeeeeee lalalalal",
+"price":"1250"
+}
+
+###
+
+PUT http://localhost:3000/products/60de50e78ff25e32fc7732e2
+
+Content-Type: x-www-form-urlencoded
+
+{
+"productName": "garchaaaaaa",
+"description": "sarasasas lalalalal",
+"price":"1350"
+}
+
+
+###
+DELETE http://localhost:3000/products/60dd143b1891f625989337c7

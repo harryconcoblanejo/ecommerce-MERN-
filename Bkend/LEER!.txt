@@ -1,0 +1,10 @@
+
+
+autenticar ruta mercadoPago
+enviar data x el body,
+arrancar el front,(formulario de pago)
+
+chequear hasta ahi y contitnuar con video 5
+ 
+ 
+ agregar mercadoPago y Watsap

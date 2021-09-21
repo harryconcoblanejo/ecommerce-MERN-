@@ -60,9 +60,6 @@ const formTest = () => {
         <br />
         <h2>catnidad: 1</h2>
         <br />
-        {/* <input type="text" name="title" value="un choto" />
-        <input type="text" name="quantity" value="1" />
-        <input type="text" name="unit_price" value="3500" /> */}
         <input type="submit" value="comprar" />
       </form>
     </div>

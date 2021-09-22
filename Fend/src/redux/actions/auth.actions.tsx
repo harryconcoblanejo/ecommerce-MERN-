@@ -60,4 +60,4 @@ export const signout = () => {
       type: authconstants.LOGOUT_REQUEST,
     })
   }
-} //
+}

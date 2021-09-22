@@ -53,7 +53,7 @@ const Signin = () => {
         <button type="submit">Signin!</button>
       </form>
 
-      <NavLink to="/">HOME</NavLink>
+      {/* <NavLink to="/">HOME</NavLink> */}
     </Fragment>
   )
 }

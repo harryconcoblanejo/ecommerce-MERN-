@@ -5,11 +5,11 @@ const router = Router();
 
 import * as authCtrl from "../controllers/authController";
 
-// router.post(
-//   "/signup",
-//   verifySignup.checkDuplicateUsernameOrEmail,
-//   authCtrl.signUp
-// );
+router.post(
+  "/signup",
+  verifySignup.checkDuplicateUsernameOrEmail,
+  authCtrl.signUp
+);
 router.post("/signin", authCtrl.signIn);
 router.post(
   "/signup/admin",
@@ -17,10 +17,10 @@ router.post(
   authCtrl.signUp
 );
 
-router.post(
-  "/signup",
-  [verifySignup.checkRoles, verifySignup.checkDuplicateUsernameOrEmail],
-  authCtrl.signUp
-);
+// router.post(
+//   "/signup",
+//   [verifySignup.checkRoles, verifySignup.checkDuplicateUsernameOrEmail],
+//   authCtrl.signUp
+// );
 
 export default router;

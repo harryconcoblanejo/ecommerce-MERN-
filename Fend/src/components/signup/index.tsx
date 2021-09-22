@@ -17,7 +17,8 @@ const Signup = () => {
   const [userName, setUserName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [roles, setRoles] = useState('')
+  const [roles, setRoles] = useState([] as any)
+
   const [error, setError] = useState('')
 
   const userSignup = (e: ChangeEvent<HTMLFormElement>) => {
@@ -29,6 +30,7 @@ const Signup = () => {
       roles,
     }
     dispatch(signup(user))
+    console.log(user)
   }
 
   if (auth.authenticate) {

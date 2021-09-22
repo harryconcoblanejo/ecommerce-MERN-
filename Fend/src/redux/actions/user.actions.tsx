@@ -7,7 +7,7 @@ type signupUser = {
   userName: string
   email: string
   password: string
-  roles: string
+  roles: string[] | undefined
 }
 
 export const signup = (user: signupUser) => {

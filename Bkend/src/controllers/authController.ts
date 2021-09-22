@@ -24,7 +24,7 @@ export const signUp = async (req: Request, res: Response) => {
     const foundRoles = await Role.find({ name: { $in: roles } });
     newUser.roles = foundRoles.map((role: { _id: string }) => role._id);
   } else {
-    const role: IUser = await Role.findOne({ name: "user" }); // si no asigno un rol, automaticamente se asigna "user"
+    const role = await Role.findOne({ name: "user" }); // si no asigno un rol, automaticamente se asigna "user"
     newUser.roles = [role._id];
   }
 

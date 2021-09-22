@@ -20,7 +20,15 @@ const Home = () => {
   }
 
   const renderLoggedInLinks = () => {
-    return <span onClick={logout}>Signout</span>
+    return (
+      <div>
+        <NavLink to="signin">Signin</NavLink>
+        <br />
+        <NavLink to="signup">Signup</NavLink>
+        <br />
+        <span onClick={logout}>Signout</span>
+      </div>
+    )
   }
 
   const renderNonLoggedInLinks = () => {

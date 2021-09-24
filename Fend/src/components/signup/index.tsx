@@ -13,6 +13,7 @@ import { RootState } from '../../redux/reducers'
 
 const Signup = () => {
   const auth = useSelector((state: RootState) => state.auth)
+  const user = useSelector((state: RootState) => state.user)
   const dispatch = useDispatch()
   const [userName, setUserName] = useState('')
   const [email, setEmail] = useState('')
@@ -37,8 +38,13 @@ const Signup = () => {
     return <Redirect to={`/`} />
   }
 
+  if (user.loading) {
+    return <p>Loading..!</p>
+  }
+
   return (
-    <Fragment>
+    <div>
+      {/* {user.message} */}!!!!
       <form onSubmit={userSignup}>
         <input
           type="text"
@@ -71,8 +77,7 @@ const Signup = () => {
 
         <button type="submit">Signup!</button>
       </form>
-      {/* <NavLink to="/">HOME</NavLink> */}
-    </Fragment>
+    </div>
   )
 }
 

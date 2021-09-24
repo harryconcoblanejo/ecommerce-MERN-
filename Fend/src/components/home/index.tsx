@@ -13,37 +13,10 @@ import Header from '../header/Header'
 import '../home/homeStyles.css'
 
 const Home = () => {
-  const dispatch = useDispatch()
-  const auth = useSelector((state: RootState) => state.auth)
-  const logout = () => {
-    dispatch(signout())
-  }
-
-  const renderLoggedInLinks = () => {
-    return (
-      <div>
-        <NavLink to="signin">Signin</NavLink>
-        <br />
-        <NavLink to="signup">Signup</NavLink>
-        <br />
-        <span onClick={logout}>Signout</span>
-      </div>
-    )
-  }
-
-  const renderNonLoggedInLinks = () => {
-    return (
-      <div>
-        <NavLink to="signin">Signin</NavLink>
-        <br />
-        <NavLink to="signup">Signup</NavLink>
-      </div>
-    )
-  }
   return (
     <div className="homeContainer">
       <Header />
-      {auth.authenticate ? renderLoggedInLinks() : renderNonLoggedInLinks()}
+
       <div className="subContainer">
         <div className="sideBar">
           <h2>sidebar</h2>

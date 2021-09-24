@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom'
 import { signup } from '../../redux/actions'
 import { RootState } from '../../redux/reducers'
+import Header from '../header/Header'
 
 const Signup = () => {
   const auth = useSelector((state: RootState) => state.auth)
@@ -44,6 +45,7 @@ const Signup = () => {
 
   return (
     <div>
+      <Header />
       {/* {user.message} */}!!!!
       <form onSubmit={userSignup}>
         <input

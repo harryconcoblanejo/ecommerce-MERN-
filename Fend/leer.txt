@@ -1,3 +1,3 @@
 *instalar zass
-//seeguir video 12 min 33
-no reconoce roles
+*corregir todo lo del home, tengo codigo q va en otro lado
+*ver video 13

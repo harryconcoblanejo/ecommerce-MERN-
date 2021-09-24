@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter as Router, NavLink, Redirect } from 'react-router-dom'
 import { login } from '../../redux/actions/index'
 import { RootState } from '../../redux/reducers/index'
+import Header from '../header/Header'
 
 export type singinUser = {
   email: string
@@ -34,6 +35,7 @@ const Signin = () => {
   }
   return (
     <Fragment>
+      <Header />
       <form onSubmit={userLogin}>
         <input
           type="text"

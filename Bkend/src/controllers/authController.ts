@@ -51,5 +51,11 @@ export const signIn = async (req: Request, res: Response) => {
   const token = jwt.sign({ id: userFound._id }, config.SECRET_KEY, {
     expiresIn: 86400, // 24 hours
   });
+  res.cookie("token", token, { expires: new Date(Date.now() + 1 * 3600000) });
   res.json({ token, userFound });
+};
+
+export const signOut = async (req: Request, res: Response) => {
+  res.clearCookie("token");
+  res.status(200).json({ message: "Signout successfully...!" });
 };

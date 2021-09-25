@@ -7,6 +7,7 @@ const initialState = {
 }
 
 export default (state = initialState, action: any) => {
+  console.log(action)
   switch (action.type) {
     case userConstants.USER_REGISTER_REQUEST:
       state = {

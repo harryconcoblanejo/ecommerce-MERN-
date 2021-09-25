@@ -11,9 +11,10 @@ type signupUser = {
 }
 
 export const signup = (user: signupUser) => {
+  console.log(user)
   return async (dispatch: Dispatch) => {
     dispatch({ type: userConstants.USER_REGISTER_SUCCESS })
-    const res = await axios.post(`/signup`, {
+    const res = await axios.post(`/admin/signup`, {
       ...user,
     })
     if (res.status === 200) {

@@ -1,16 +1,16 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
-import { signout } from '../../redux/actions'
-import { RootState } from '../../redux/reducers'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { signout } from '../../redux/actions';
+import { RootState } from '../../redux/reducers';
 
 const Header = () => {
-  const dispatch = useDispatch()
-  const auth = useSelector((state: RootState) => state.auth)
+  const dispatch = useDispatch();
+  const auth = useSelector((state: RootState) => state.auth);
 
   const logout = () => {
-    dispatch(signout())
-  }
+    dispatch(signout());
+  };
 
   const renderLoggedInLinks = () => {
     return (
@@ -21,8 +21,8 @@ const Header = () => {
         <br />
         <span onClick={logout}>Signout</span>
       </div>
-    )
-  }
+    );
+  };
 
   const renderNonLoggedInLinks = () => {
     return (
@@ -31,14 +31,14 @@ const Header = () => {
         <br />
         <NavLink to="signup">Signup</NavLink>
       </div>
-    )
-  }
+    );
+  };
   return (
     <div>
       <h1>Welcome to admin Dashboard</h1>
       {auth.authenticate ? renderLoggedInLinks() : renderNonLoggedInLinks()}
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -2,19 +2,22 @@ body {
   min-height: 100vh;
   border: 5px solid black;
 }
+h1 {
+  color: red;
+}
 .homeContainer {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   /* width: 100%;
-  height: 100%; */
-  border: 5px solid rgb(243, 10, 10);
+      height: 100%; */
+  border: 5px solid rgb(3, 127, 211);
 }
 .subContainer {
   display: flex;
   min-height: 100vh;
   /* width: 100%;
-  height: 100%; */
+      height: 100%; */
   border: 5px solid rgb(10, 243, 126);
 }
 .sideBar {

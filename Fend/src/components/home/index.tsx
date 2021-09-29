@@ -1,32 +1,42 @@
-import React, { Fragment } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { Fragment } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route,
   Link,
   Switch,
   NavLink,
-} from 'react-router-dom'
-import { signout } from '../../redux/actions'
-import { RootState } from '../../redux/reducers'
-import Header from '../header/Header'
-import '../home/homeStyles.css'
+} from 'react-router-dom';
+import { signout } from '../../redux/actions';
+import { RootState } from '../../redux/reducers';
+import Header from '../header/Header';
+import Layout from '../layout/Layout';
+import './homeStyles/index.scss';
 
 const Home = () => {
   return (
-    <div className="homeContainer">
-      <Header />
-
+    <Layout>
       <div className="subContainer">
         <div className="sideBar">
-          <h2>sidebar</h2>
-        </div>
-        <div className="container">
-          <h2>container</h2>
-        </div>
-      </div>
-    </div>
-  )
-}
+          <ul>
+            <li>
+              <NavLink to={'/'}>Home</NavLink>{' '}
+            </li>
 
-export default Home
+            <li>
+              <NavLink to={'/Products'}>Products</NavLink>{' '}
+            </li>
+
+            <li>
+              <NavLink to={'/Orders'}>Orders</NavLink>
+            </li>
+          </ul>
+        </div>
+
+        <div className="container">container</div>
+      </div>
+    </Layout>
+  );
+};
+
+export default Home;

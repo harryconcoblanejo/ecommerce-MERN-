@@ -10,7 +10,8 @@ import { isUserLoggedIn } from './redux/actions';
 import { RootState } from './redux/reducers';
 import Products from './components/products';
 import Orders from './components/orders';
-import Layout from './components/layout/Layout';
+import Layout from './components/layout';
+import Category from './components/category/index.';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ export const App = () => {
     <Fragment>
       <Switch>
         <PrivateRoute path="/" exact component={Home} />
+        <PrivateRoute path="/category" component={Category} />
         <PrivateRoute path="/products" component={Products} />
         <PrivateRoute path="/orders" component={Orders} />
 

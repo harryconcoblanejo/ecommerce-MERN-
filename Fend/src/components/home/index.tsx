@@ -10,13 +10,13 @@ import {
 import { signout } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
 import Header from '../header/Header';
-import Layout from '../layout/Layout';
+import Layout from '../layout';
 import './homeStyles/index.scss';
 
 const Home = () => {
   return (
-    <Layout>
-      <div className="subContainer">
+    <Layout sidebar>
+      {/* <div className="subContainer">
         <div className="sideBar">
           <ul>
             <li>
@@ -34,7 +34,7 @@ const Home = () => {
         </div>
 
         <div className="container">container</div>
-      </div>
+      </div> */}
     </Layout>
   );
 };

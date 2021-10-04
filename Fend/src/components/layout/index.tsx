@@ -12,11 +12,14 @@ const Layout = (props: any) => {
           <div className="sideBar">
             <ul>
               <li>
-                <NavLink to={'/'}>Home</NavLink>{' '}
+                <NavLink to={'/'}>Home</NavLink>
+              </li>
+              <li>
+                <NavLink to={'/category'}>Categories</NavLink>
               </li>
 
               <li>
-                <NavLink to={'/Products'}>Products</NavLink>{' '}
+                <NavLink to={'/Products'}>Products</NavLink>
               </li>
 
               <li>

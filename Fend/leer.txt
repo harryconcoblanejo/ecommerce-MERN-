@@ -1,4 +1,5 @@
-*instalar zass
 
-*ver video  14
 
+*ver video  14 min 25.50
+https://www.youtube.com/watch?v=roAw1tFaVNg&list=PLB_Wd4-5SGAYsxD4JGaVdXll3PnoyI-AM&index=14&ab_channel=RizwanKhan
+* ver como tipar acciones de redux 

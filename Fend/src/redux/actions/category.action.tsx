@@ -31,3 +31,15 @@ export const getAllCategory = () => {
     }
   };
 };
+
+export const addCategory = (form: any) => {
+  return async (dispatch: Dispatch<any>) => {
+    console.log(`${form} this is the form data`);
+    try {
+      const res = await axios.post('/category/create', form);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

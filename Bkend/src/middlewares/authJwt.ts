@@ -23,9 +23,8 @@ export const verifyToken = async (
   next: NextFunction
 ) => {
   try {
-    console.log("flag1");
-    const token = req.headers.authorization as string; //req.header('Bearer')
-    console.log("flag2");
+    const token = req.headers
+      .authorization as string; /* req.header("Bearer"); */
 
     console.log(token);
 

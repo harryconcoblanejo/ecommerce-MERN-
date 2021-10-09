@@ -1,5 +1,7 @@
 
-*revisar token vencido
-*ver video  14 min 37
+
+*ver video  14 min 43
 https://www.youtube.com/watch?v=roAw1tFaVNg&list=PLB_Wd4-5SGAYsxD4JGaVdXll3PnoyI-AM&index=14&ab_channel=RizwanKhan
 * ver como tipar acciones de redux 
+
+*arreglar carga deimagenes de categoria en bkend

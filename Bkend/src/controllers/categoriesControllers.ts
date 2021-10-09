@@ -17,6 +17,7 @@ function createCategories(categories: any, parentId: any = null): any {
       _id: cate._id,
       name: cate.name,
       slug: cate.slug,
+      categoryImage: cate.categoryImage,
       children: createCategories(categories, cate._id),
     });
   }
@@ -26,17 +27,20 @@ function createCategories(categories: any, parentId: any = null): any {
 
 export const createCategory: RequestHandler = async (req, res) => {
   try {
-    const categoryObj = {
-      name: req.body.name,
-      slug: slugify(req.body.name),
-      parentId: req.body.parentId,
-    };
-
-    if (req.body.parentId) {
-      categoryObj.parentId = req.body.parentId;
-    }
-
-    const category: ICategory = new Category(categoryObj);
+    const { name, parentId } = req.body;
+    const slug = slugify(name);
+    const categoryImage = req.files as
+      | {
+          [fieldname: string]: Express.Multer.File[];
+        }
+      | Express.Multer.File[]
+      | undefined;
+    const category: ICategory = new Category({
+      name,
+      parentId,
+      slug,
+      categoryImage,
+    });
     const savedCategory = await category.save();
     res.json(savedCategory);
   } catch (error) {

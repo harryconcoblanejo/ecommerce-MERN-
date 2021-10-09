@@ -1,7 +1,8 @@
+import axios from '../../helpers/axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllCategory } from '../../redux/actions';
+import { addCategory, getAllCategory } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
 
 import Layout from '../layout';
@@ -50,21 +51,60 @@ const Category = () => {
 
     return options;
   };
+  const handleCategoryImage = (e: any) => {
+    setCategoryImage(e.target.files[0]);
+  };
 
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const form = new FormData();
+    form.append('name', categoryName);
+    form.append('parentId', parentCategoryId);
+    form.append('categoryImage', categoryImage);
+
+    // const data = {
+    //   name: categoryName,
+    //   parentId: parentCategoryId,
+    //   categoryImage: categoryImage,
+    // };
+
+    // form.append('categoryImage', categoryImage);
+
+    // try {
+    //   const res = await axios.post('/category/create', {
+    //     name: categoryName,
+    //     parentId: parentCategoryId,
+    //   });
+
+    //   console.log(res);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+    dispatch(addCategory(form));
+  };
   return (
     <Layout sidebar>
       <div className="categoryContainer">
         <h3> My categories</h3>
-        <div className="addCategry">
-          <button>Add</button>
 
+        <form
+          className="addCategory"
+          encType="multipart/form-data"
+          onSubmit={handleSubmit}
+        >
           <input
             type="text"
             placeholder={`Category Name`}
             value={categoryName}
+            name="name"
             onChange={(e) => setCategoryName(e.target.value)}
           />
-          <select>
+          <select
+            onChange={(e) => setparentCategoryId(e.target.value)}
+            value={parentCategoryId}
+          >
             <option>Select Category</option>
 
             {createCAtegoryList(category.categories).map((option) => (
@@ -73,7 +113,14 @@ const Category = () => {
               </option>
             ))}
           </select>
-        </div>
+          <input
+            type="file"
+            name="categoryImage"
+            onChange={handleCategoryImage}
+          />
+
+          <button type="submit">send</button>
+        </form>
 
         <div className="categoryDisplay">
           Category list

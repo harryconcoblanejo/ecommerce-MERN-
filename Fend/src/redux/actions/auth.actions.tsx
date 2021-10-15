@@ -55,8 +55,6 @@ export const isUserLoggedIn = () => {
 };
 
 export const signout = () => {
-  // const token = localStorage.getItem('token')
-
   return async (dispatch: Dispatch<any>) => {
     const res = await axios.post('/admin/signout');
 

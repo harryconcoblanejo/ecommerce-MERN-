@@ -6,7 +6,7 @@ export interface ICategory extends Document {
   slug?: string;
   parentId?: string;
   children?: string;
-  categoryImage?: [];
+  categoryImage: any[];
 }
 
 const categorySchema = new Schema(
@@ -35,4 +35,4 @@ const categorySchema = new Schema(
   { timestamps: true }
 );
 
-export default model("Category", categorySchema);
+export default model<ICategory>("Category", categorySchema);

@@ -49,13 +49,14 @@ export const signIn = async (req: Request, res: Response) => {
     return res.status(400).json({ token: "null", message: "invalid Password" });
 
   const token = jwt.sign({ id: userFound._id }, config.SECRET_KEY, {
-    expiresIn: "1h", // 24 hours
+    expiresIn: "24h", // 24 hours
   });
-  res.cookie("token", token, { expires: new Date(Date.now() + 1 * 3600000) });
+  res.cookie("token", token, { expires: new Date(Date.now() + 24 * 3600000) });
   res.json({ token, userFound });
 };
 
 export const signOut = async (req: Request, res: Response) => {
   res.clearCookie("token");
+
   res.status(200).json({ message: "Signout successfully...!" });
 };

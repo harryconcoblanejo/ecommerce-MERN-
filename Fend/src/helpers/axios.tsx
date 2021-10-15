@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
 
   headers: {
     'Content-Type': 'application/json',
-    Authorization: token,
+    Authorization: token ? `${token}` : '',
   },
 });
 export default axiosInstance;

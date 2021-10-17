@@ -2,11 +2,11 @@
 import { Schema, model, Document } from "mongoose";
 
 export interface ICategory extends Document {
-  name?: string;
+  name: string;
   slug?: string;
   parentId?: string;
   children?: string;
-  categoryImage: any[];
+  categoryImage?: any[];
 }
 
 const categorySchema = new Schema(

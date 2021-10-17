@@ -2,12 +2,12 @@ import { RequestHandler } from "express";
 import Category, { ICategory } from "../models/categories/category";
 import slugify from "slugify";
 
-function createCategories(categories: any, parentId: any = null): any {
+function createCategories(categories: any, parentId = null): any {
   const categoryList = [];
   let category;
 
   if (parentId == null) {
-    category = categories.filter((cat: any) => cat.parentId == undefined);
+    category = categories.filter((cat: any) => cat.parentId == null);
   } else {
     category = categories.filter((cat: any) => cat.parentId == parentId);
   }
@@ -36,14 +36,26 @@ export const createCategory: RequestHandler = async (req, res) => {
         }
       | Express.Multer.File[]
       | undefined;
-    const category: ICategory = new Category({
-      name,
-      parentId,
-      slug,
-      categoryImage,
-    });
-    const savedCategory = await category.save();
-    res.json(savedCategory);
+
+    if (parentId == "" || null) {
+      const category: ICategory = new Category({
+        name,
+        // parentId,
+        slug,
+        categoryImage,
+      });
+      const savedCategory = await category.save();
+      res.json(savedCategory);
+    } else {
+      const category: ICategory = new Category({
+        name,
+        parentId,
+        slug,
+        categoryImage,
+      });
+      const savedCategory = await category.save();
+      res.json(savedCategory);
+    }
   } catch (error) {
     res.send(error);
     console.log(error);

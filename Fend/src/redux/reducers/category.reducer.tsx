@@ -34,6 +34,7 @@ const buildNewCategories = (
               )
             : [],
       });
+      console.log('flag1');
     } else {
       myCategories.push({
         ...cat,
@@ -42,6 +43,7 @@ const buildNewCategories = (
             ? buildNewCategories(parentId, cat.children, category)
             : [],
       });
+      console.log('flag2');
     }
   }
   return myCategories;

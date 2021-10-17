@@ -17,12 +17,13 @@ const Category = () => {
   const [parentCategoryId, setparentCategoryId] = useState('');
   const [categoryImage, setCategoryImage] = useState('');
 
-  // const [show, setShow] = useState(false);
+  const [update, setUpdate] = useState(0);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCategory());
-  }, []);
+    setUpdate(0);
+  }, [update]);
 
   const renderCategories = (categories: any) => {
     let myCategories = [];
@@ -63,25 +64,7 @@ const Category = () => {
     form.append('parentId', parentCategoryId);
     form.append('categoryImage', categoryImage);
 
-    // const data = {
-    //   name: categoryName,
-    //   parentId: parentCategoryId,
-    //   categoryImage: categoryImage,
-    // };
-
-    // form.append('categoryImage', categoryImage);
-
-    // try {
-    //   const res = await axios.post('/category/create', {
-    //     name: categoryName,
-    //     parentId: parentCategoryId,
-    //   });
-
-    //   console.log(res);
-    // } catch (error) {
-    //   console.log(error);
-    // }
-
+    setUpdate(update + 1);
     dispatch(addCategory(form));
   };
   return (

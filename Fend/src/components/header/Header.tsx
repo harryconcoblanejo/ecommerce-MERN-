@@ -15,10 +15,6 @@ const Header = () => {
   const renderLoggedInLinks = () => {
     return (
       <div>
-        {/* <NavLink to="signin">Signin</NavLink>
-        <br />
-        <NavLink to="signup">Signup</NavLink> */}
-        <br />
         <span onClick={logout}>Signout</span>
       </div>
     );
@@ -34,9 +30,16 @@ const Header = () => {
     );
   };
   return (
-    <div>
-      <h1>Welcome to admin Dashboard</h1>
-      {auth.authenticate ? renderLoggedInLinks() : renderNonLoggedInLinks()}
+    <div className="header">
+      <p className="headerTitle">Welcome to admin Dashboard</p>
+      <p>
+        {' '}
+        {auth.authenticate ? (
+          <div className="signout">{renderLoggedInLinks()}</div>
+        ) : (
+          renderNonLoggedInLinks()
+        )}{' '}
+      </p>
     </div>
   );
 };

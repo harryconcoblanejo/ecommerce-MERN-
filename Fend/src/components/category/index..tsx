@@ -1,6 +1,6 @@
 import axios from '../../helpers/axios';
 import React, { useEffect, useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { addCategory, getAllCategory } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
@@ -17,7 +17,7 @@ const Category = () => {
   const [parentCategoryId, setparentCategoryId] = useState('');
   const [categoryImage, setCategoryImage] = useState('');
 
-  const [update, setUpdate] = useState(0);
+  const [update, setUpdate] = useState(1);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -64,8 +64,8 @@ const Category = () => {
     form.append('parentId', parentCategoryId);
     form.append('categoryImage', categoryImage);
 
-    setUpdate(update + 1);
     dispatch(addCategory(form));
+    setUpdate(update + 1);
   };
   return (
     <Layout sidebar>

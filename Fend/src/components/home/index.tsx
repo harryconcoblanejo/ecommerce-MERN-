@@ -12,31 +12,10 @@ import { RootState } from '../../redux/reducers';
 import Header from '../header/Header';
 import Layout from '../layout';
 import './homeStyles/index.scss';
+import '../header/header.styes/header.scss';
 
 const Home = () => {
-  return (
-    <Layout sidebar>
-      {/* <div className="subContainer">
-        <div className="sideBar">
-          <ul>
-            <li>
-              <NavLink to={'/'}>Home</NavLink>{' '}
-            </li>
-
-            <li>
-              <NavLink to={'/Products'}>Products</NavLink>{' '}
-            </li>
-
-            <li>
-              <NavLink to={'/Orders'}>Orders</NavLink>
-            </li>
-          </ul>
-        </div>
-
-        <div className="container">container</div>
-      </div> */}
-    </Layout>
-  );
+  return <Layout sidebar></Layout>;
 };
 
 export default Home;

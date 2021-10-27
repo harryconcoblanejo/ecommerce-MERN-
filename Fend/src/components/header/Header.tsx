@@ -14,32 +14,31 @@ const Header = () => {
 
   const renderLoggedInLinks = () => {
     return (
-      <div>
-        <span onClick={logout}>Signout</span>
+      <div className="signout" onClick={logout}>
+        <span>Signout</span>
       </div>
     );
   };
 
   const renderNonLoggedInLinks = () => {
     return (
-      <div>
-        <NavLink to="signin">Signin</NavLink>
+      <>
+        <NavLink className="signin" to="signin">
+          Signin
+        </NavLink>
         <br />
-        <NavLink to="signup">Signup</NavLink>
-      </div>
+        <NavLink className="signup" to="signup">
+          Signup
+        </NavLink>
+      </>
     );
   };
   return (
     <div className="header">
       <p className="headerTitle">Welcome to admin Dashboard</p>
-      <p>
-        {' '}
-        {auth.authenticate ? (
-          <div className="signout">{renderLoggedInLinks()}</div>
-        ) : (
-          renderNonLoggedInLinks()
-        )}{' '}
-      </p>
+      <div className="signinSignup">
+        {auth.authenticate ? renderLoggedInLinks() : renderNonLoggedInLinks()}
+      </div>
     </div>
   );
 };

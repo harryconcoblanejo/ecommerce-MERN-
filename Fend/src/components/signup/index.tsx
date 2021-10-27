@@ -1,5 +1,5 @@
-import React, { ChangeEvent, Fragment, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { ChangeEvent, Fragment, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route,
@@ -7,47 +7,48 @@ import {
   Switch,
   NavLink,
   Redirect,
-} from 'react-router-dom'
-import { signup } from '../../redux/actions'
-import { RootState } from '../../redux/reducers'
-import Header from '../header/Header'
+} from 'react-router-dom';
+import { signup } from '../../redux/actions';
+import { RootState } from '../../redux/reducers';
+import Header from '../header/Header';
+import '../signup/signup.styles/index.scss';
 
 const Signup = () => {
-  const auth = useSelector((state: RootState) => state.auth)
-  const user = useSelector((state: RootState) => state.user)
-  const dispatch = useDispatch()
-  const [userName, setUserName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [roles, setRoles] = useState([] as any)
+  const auth = useSelector((state: RootState) => state.auth);
+  const user = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch();
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [roles, setRoles] = useState([] as any);
 
-  const [error, setError] = useState('')
+  const [error, setError] = useState('');
 
   const userSignup = (e: ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
     const user = {
       userName,
       email,
       password,
       roles,
-    }
-    dispatch(signup(user))
-    console.log(user)
-  }
+    };
+    dispatch(signup(user));
+    console.log(user);
+  };
 
   if (auth.authenticate) {
-    return <Redirect to={`/`} />
+    return <Redirect to={`/`} />;
   }
 
   if (user.loading) {
-    return <p>Loading..!</p>
+    return <p>Loading..!</p>;
   }
 
   return (
-    <div>
+    <>
       <Header />
-      {/* {user.message} */}!!!!
-      <form onSubmit={userSignup}>
+
+      <form className="signupForm" onSubmit={userSignup}>
         <input
           type="text"
           placeholder="user name"
@@ -79,8 +80,8 @@ const Signup = () => {
 
         <button type="submit">Signup!</button>
       </form>
-    </div>
-  )
-}
+    </>
+  );
+};
 
-export default Signup
+export default Signup;

@@ -12,7 +12,7 @@ router.post(
 );
 router.post("/admin/signin", authCtrl.signIn);
 
-router.post("/admin/signout", authJwt.verifyToken, authCtrl.signOut);
+router.post("/admin/signout", /* authJwt.verifyToken */ authCtrl.signOut);
 // router.post(
 //   "/signup/admin",
 //   [verifySignup.checkRoles, verifySignup.checkDuplicateUsernameOrEmail],

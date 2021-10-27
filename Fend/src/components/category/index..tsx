@@ -17,12 +17,11 @@ const Category = () => {
   const [parentCategoryId, setparentCategoryId] = useState('');
   const [categoryImage, setCategoryImage] = useState('');
 
-  const [update, setUpdate] = useState(1);
+  const [update, setUpdate] = useState(0);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCategory());
-    setUpdate(0);
   }, [update]);
 
   const renderCategories = (categories: any) => {
@@ -65,7 +64,8 @@ const Category = () => {
     form.append('categoryImage', categoryImage);
 
     dispatch(addCategory(form));
-    setUpdate(update + 1);
+
+    // setUpdate(update + 1);
   };
   return (
     <Layout sidebar>

@@ -25,7 +25,7 @@ export const verifyToken = async (
   try {
     const token = req.headers
       .authorization as string; /* req.header("Bearer"); */
-
+    console.log("este es el token");
     console.log(token);
 
     if (!token) return res.status(403).json({ message: "no token provided" });

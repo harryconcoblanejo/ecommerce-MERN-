@@ -1,6 +1,7 @@
 import { authconstants } from './constants';
 import { singinUser } from '../../components/signin';
 import axios from '../../helpers/axios';
+import Axios from 'axios';
 import { Dispatch } from 'redux';
 
 export const login = (user: singinUser) => {
@@ -56,7 +57,7 @@ export const isUserLoggedIn = () => {
 
 export const signout = () => {
   return async (dispatch: Dispatch<any>) => {
-    const res = await axios.post('/admin/signout');
+    const res = await axios.post('admin/signout');
 
     dispatch({ type: authconstants.LOGOUT_REQUEST });
 

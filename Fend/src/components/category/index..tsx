@@ -10,8 +10,9 @@ type options = {
   value: string;
   name: string;
 };
-
+import '../category/category.styles/index.scss';
 const Category = () => {
+  const [activeForm, setActiveForm] = useState(false);
   const category = useSelector((state: RootState) => state.category);
   const [categoryName, setCategoryName] = useState('');
   const [parentCategoryId, setparentCategoryId] = useState('');
@@ -65,19 +66,28 @@ const Category = () => {
 
     dispatch(addCategory(form));
 
-    // setUpdate(update + 1);
+    setActiveForm(false);
+  };
+
+  const showForm = () => {
+    console.log('showing form...');
+    setActiveForm(true);
   };
   return (
     <Layout sidebar>
       <div className="categoryContainer">
         <h3> My categories</h3>
+        <span onClick={() => showForm()} className="addCategoryButton">
+          Add Category
+        </span>
 
         <form
-          className="addCategory"
+          className={activeForm == true ? 'addCategory' : 'hidenForm'}
           encType="multipart/form-data"
           onSubmit={handleSubmit}
         >
           <input
+            className="categoryName"
             type="text"
             placeholder={`Category Name`}
             value={categoryName}
@@ -96,17 +106,24 @@ const Category = () => {
               </option>
             ))}
           </select>
+
+          <label htmlFor="categoryImage" className="categoryImageLabel">
+            Select Image
+          </label>
           <input
             type="file"
             name="categoryImage"
+            id="categoryImage"
             onChange={handleCategoryImage}
+            className="categoryImage"
           />
 
           <button type="submit">send</button>
         </form>
 
         <div className="categoryDisplay">
-          Category list
+          <h4 className="categoryListTitle">Category list</h4>
+
           <ul>{renderCategories(category.categories)}</ul>
         </div>
       </div>

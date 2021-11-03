@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nunito:wght@200&family=Roboto:wght@100&family=Work+Sans:ital,wght@0,300;1,400&display=swap');
+
+.categoryDisplay {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  margin-left: 3%;
+  margin-top: 2%;
+  border: solid 2px red;
+  font-family: 'Nanum Gothic', sans-serif;
+  overflow-y: scroll;
+
+  .categoryListTitle {
+    margin: 10px auto;
+    width: 50%;
+
+    color: rgb(65, 65, 65);
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .categoryDisplay {
+    width: 90%;
+    margin: 5px auto;
+
+    .categoryListTitle {
+      margin: 10px auto;
+      width: 50%;
+
+      color: rgb(65, 65, 65);
+      text-align: center;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 20px;
+    }
+  }
+}

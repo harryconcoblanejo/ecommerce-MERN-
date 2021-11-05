@@ -1,6 +1,6 @@
 body {
+  border: 1px solid black;
   min-height: 100vh;
-  border: 5px solid black;
 }
 
 .homeContainer {
@@ -9,34 +9,21 @@ body {
   flex-direction: column;
   /* width: 100%;
       height: 100%; */
-  border: 5px solid rgb(3, 127, 211);
+  // border: 5px solid rgb(3, 127, 211);
 }
 
 .subContainer {
   display: flex;
   min-height: 100vh;
 
-  border: 5px solid rgb(10, 243, 126);
+  // border: 5px solid rgb(10, 243, 126);
 
   .container {
     display: flex;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 100%;
     width: 70%;
-    border: 4px solid rgb(195, 152, 9);
-    box-sizing: border-box;
+    // border: 4px solid rgb(195, 152, 9);
+    // box-sizing: border-box;
   }
-}
-.sideBar {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 30%;
-
-  .sidebarLink {
-    text-decoration: none;
-    margin-top: 3px;
-  }
-
-  border: 5px solid rgb(2, 2, 2);
 }

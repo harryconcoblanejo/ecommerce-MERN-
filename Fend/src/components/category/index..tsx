@@ -31,10 +31,14 @@ const Category = () => {
     for (let category of categories) {
       myCategories.push(
         <li key={category.name}>
-          {category.name}
-          {category.children.length > 0 ? (
-            <ul>{renderCategories(category.children)}</ul>
-          ) : null}
+          <h4 className="categoryTitle"> {category.name}</h4>
+          <ul className="subCategoryTitle">
+            {category.children.length > 0 ? (
+              <h5 className="subCategoryName">
+                {renderCategories(category.children)}
+              </h5>
+            ) : null}
+          </ul>
         </li>,
       );
     }
@@ -76,7 +80,7 @@ const Category = () => {
   return (
     <Layout sidebar>
       <div className="categoryContainer">
-        <h3> My categories</h3>
+        <h3 className="principalCategoriesTitle"> My categories</h3>
         <span onClick={() => showForm()} className="addCategoryButton">
           Add Category
         </span>
@@ -124,7 +128,9 @@ const Category = () => {
         <div className="categoryDisplay">
           <h4 className="categoryListTitle">Category list</h4>
 
-          <ul>{renderCategories(category.categories)}</ul>
+          <ul className="categoryName">
+            {renderCategories(category.categories)}
+          </ul>
         </div>
       </div>
     </Layout>

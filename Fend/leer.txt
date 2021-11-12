@@ -5,3 +5,4 @@ https://www.youtube.com/watch?v=qQeoUeBc_BE&list=PLB_Wd4-5SGAYsxD4JGaVdXll3PnoyI
 * ver como tipar acciones de redux 
 
 *mobilefirst
+*mantener sesion iniciada, chequear cookies

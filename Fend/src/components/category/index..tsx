@@ -122,7 +122,9 @@ const Category = () => {
             className="categoryImage"
           />
 
-          <button type="submit">send</button>
+          <button className="categorySubmitButton" type="submit">
+            Create!
+          </button>
         </form>
 
         <div className="categoryDisplay">

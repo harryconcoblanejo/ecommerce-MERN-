@@ -88,6 +88,7 @@ input {
     border-radius: 5px;
     outline: 0;
     width: 80%;
+    font-size: 12px;
 
     &:focus {
       outline: none !important;
@@ -125,4 +126,13 @@ input {
   border: 1px solid black;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.categorySubmitButton {
+  background-color: rgb(27, 5, 221);
+  color: rgb(246, 246, 246);
+  border: 1px solid rgb(243, 243, 243);
+  border-radius: 5px;
+  width: 40%;
+  height: 20%;
 }

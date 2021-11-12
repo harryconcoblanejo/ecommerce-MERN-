@@ -1,23 +1,17 @@
-
 import { Schema, model } from "mongoose";
 import mongoose from "mongoose";
 
 export interface IProduct extends mongoose.Document {
-productName:string,
-slug:string,
-desccription:string,
-productImages:[],
-price:number,
-category:string,
-countInStock:number,
-reviews:[],
-createdBy:{},
+  productName: string;
+  slug: string;
+  desccription: string;
+  productImages: [];
+  price: number;
+  category: string;
+  countInStock: number;
+  reviews: [];
+  createdBy: {};
 }
-
-
-  
-
-
 
 const productSchema = new Schema(
   {
@@ -25,9 +19,9 @@ const productSchema = new Schema(
       type: String,
       required: true,
       trim: true,
-      unique:true
+      unique: true,
     },
-    slug:{
+    slug: {
       type: String,
       required: true,
       trim: true,
@@ -38,33 +32,33 @@ const productSchema = new Schema(
       required: true,
       trim: true,
     },
-    productImages:{
-        type:[{}],
-        required:true,
-       
+    productImages: {
+      type: [],
+      required: true,
     },
     price: {
       type: Number,
       required: true,
       trim: true,
     },
-    category:{
-      type: Schema.Types.ObjectId, ref:'Category',required:true,
-    
+    category: {
+      type: Schema.Types.ObjectId,
+      ref: "Category",
+      required: true,
     },
-    countInStock:{
+    countInStock: {
       type: Number,
-      required: true
+      required: true,
     },
-    reviews:[
+    reviews: [
       {
-        type:Schema.Types.ObjectId, 
-        ref:'User',
-        review:String
-      }
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        review: String,
+      },
     ],
-    createdBy:{type:Schema.Types.ObjectId, ref:'User',required:true },
-    updatedAt:Date
+    createdBy: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    updatedAt: Date,
 
     // createdAt: { type: Date, default: Date.now }
   },

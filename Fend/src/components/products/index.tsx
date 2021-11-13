@@ -13,19 +13,21 @@ declare module 'react' {
 }
 
 const Products = () => {
+  const category = useSelector((state: RootState) => state.category);
+
   const [productName, setProductName] = useState('');
   const [quantity, setQuantity] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
-  const [productImages, setProductImages] = useState<any>([]);
-  const [category, setCategory] = useState('');
+  const [productImages, setProductImages] = useState<any[]>([]);
+  const [categoryId, setCategoryId] = useState('');
 
   const [activeForm, setActiveForm] = useState(false);
 
   const handleProductImages = (e: any) => {
-    setProductImages(e.target.files.filename);
+    setProductImages([...productImages, e.target.files[0]]);
   };
-
+  console.log(productImages);
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
@@ -52,6 +54,18 @@ const Products = () => {
   const showForm = () => {
     console.log('showing product form...');
     setActiveForm(true);
+  };
+
+  const createCAtegoryList = (categories: any) => {
+    const options = [];
+    for (let category of categories) {
+      options.push({ value: category._id, name: category.name });
+      if (category.children.length > 0) {
+        createCAtegoryList(category.children);
+      }
+    }
+
+    return options;
   };
 
   return (
@@ -96,23 +110,35 @@ const Products = () => {
             name="description"
             onChange={(e) => setDescription(e.target.value)}
           />
+
+          <select
+            onChange={(e) => setCategoryId(e.target.value)}
+            value={categoryId}
+          >
+            <option>Select Category</option>
+
+            {createCAtegoryList(category.categories).map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.name}
+              </option>
+            ))}
+          </select>
+          {productImages.length > 0
+            ? productImages.map((pic: any, index: number) => (
+                <div key={index}>{pic.name}</div>
+              ))
+            : null}
+
           <input
             label="Product Images"
             type="file"
             multiple
             placeholder={`Product Images`}
-            value={productImages}
+            // value={productImages}
             name="productImages"
-            onChange={(e) => setProductImages(e.target.files)}
+            onChange={handleProductImages}
           />
-          <input
-            label="Category"
-            type="text"
-            placeholder={`Category`}
-            value={category}
-            name="category"
-            onChange={(e) => setCategory(e.target.value)}
-          />
+
           <button type="submit">Create Product</button>
         </form>
       </div>

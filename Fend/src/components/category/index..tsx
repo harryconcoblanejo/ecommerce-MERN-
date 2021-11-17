@@ -21,9 +21,9 @@ const Category = () => {
   const [update, setUpdate] = useState(0);
 
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllCategory());
-  }, [update]);
+  // useEffect(() => {
+  //   dispatch(getAllCategory());
+  // }, [update]);
 
   const renderCategories = (categories: any) => {
     let myCategories = [];
@@ -67,6 +67,9 @@ const Category = () => {
     form.append('name', categoryName);
     form.append('parentId', parentCategoryId);
     form.append('categoryImage', categoryImage);
+
+    setCategoryName('');
+    setparentCategoryId('');
 
     dispatch(addCategory(form));
 

@@ -5,12 +5,20 @@ import Layout from '../layout';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCategory, getAllCategory } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
+import { addProduct } from '../../redux/actions/product.actions';
+
 declare module 'react' {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
     // extends React's HTMLAttributes
     label?: string;
   }
 }
+
+type Option = {
+  value: string;
+  name: string;
+  children?: string;
+};
 
 const Products = () => {
   const category = useSelector((state: RootState) => state.category);
@@ -21,47 +29,44 @@ const Products = () => {
   const [description, setDescription] = useState('');
   const [productImages, setProductImages] = useState<any[]>([]);
   const [categoryId, setCategoryId] = useState('');
+  const dispatch = useDispatch();
 
   const [activeForm, setActiveForm] = useState(false);
 
   const handleProductImages = (e: any) => {
     setProductImages([...productImages, e.target.files[0]]);
   };
-  console.log(productImages);
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     const form = new FormData();
-    // form.append('productName', productName);
-    // form.append('quantity', quantity);
-    // form.append('description', description);
-    // form.append('productImages', productImages);
-    // form.append('category', category);
-    // form.append('price', price);
+    form.append('productName', productName);
+    form.append('quantity', quantity);
+    form.append('description', description);
 
-    console.log(`productName: ${productName},
-     quantity: ${quantity},
-      description: ${description},
-       category:${category},
-       price:${price}`);
-    console.log(productImages);
+    form.append('category', categoryId);
+    form.append('price', price);
 
-    // dispatch(addCategory(form));
+    for (let img of productImages) {
+      form.append('productImages', img);
+    }
+
+    dispatch(addProduct(form));
 
     setActiveForm(false);
   };
 
-  const showForm = () => {
-    console.log('showing product form...');
-    setActiveForm(true);
-  };
-
-  const createCAtegoryList = (categories: any) => {
-    const options = [];
+  const createCategoryList = (categories: any[], options: any = []) => {
     for (let category of categories) {
-      options.push({ value: category._id, name: category.name });
+      options.push({
+        value: category._id,
+        name: category.name,
+        children: category.children,
+      });
+
       if (category.children.length > 0) {
-        createCAtegoryList(category.children);
+        createCategoryList(category.children, options);
       }
     }
 
@@ -117,7 +122,7 @@ const Products = () => {
           >
             <option>Select Category</option>
 
-            {createCAtegoryList(category.categories).map((option) => (
+            {createCategoryList(category.categories).map((option: Option) => (
               <option key={option.value} value={option.value}>
                 {option.name}
               </option>

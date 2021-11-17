@@ -46,10 +46,10 @@ const productSchema = new Schema(
       ref: "Category",
       required: true,
     },
-    countInStock: {
-      type: Number,
-      required: true,
-    },
+    // countInStock: {
+    //   type: Number,
+    //   required: true,
+    // },
     reviews: [
       {
         type: Schema.Types.ObjectId,

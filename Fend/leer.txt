@@ -1,11 +1,11 @@
 
 
-*ver video  15 min20, creo q andapero chequera xlas dudas
-https://www.youtube.com/watch?v=qQeoUeBc_BE&list=PLB_Wd4-5SGAYsxD4JGaVdXll3PnoyI-AM&index=15&ab_channel=RizwanKhan
+*ver video  16 min 14, 
+https://www.youtube.com/watch?v=B6p42QzjNRo&list=PLB_Wd4-5SGAYsxD4JGaVdXll3PnoyI-AM&index=17&ab_channel=RizwanKhan
 * ver como tipar acciones de redux 
 
 *mobilefirst
 *mantener sesion iniciada, chequear cookies
 
 
-form products, reisar subida de imagenes
+agregar count in stock, pasar id como req params en frontend, ahora data hardcodeada, puedo extraer id de local host

@@ -12,38 +12,46 @@ const buildNewCategories = (
   category: any,
 ): any[] => {
   let myCategories = [];
+  if (parentId == undefined) {
+    return [
+      ...categories,
+      {
+        _id: category._id,
+        name: category.name,
+        slug: category.slug,
+        children: [],
+      },
+    ];
+  }
+
   for (let cat of categories) {
     if (cat._id == parentId) {
       myCategories.push({
         ...cat,
-        children:
-          cat.children && cat.children.length > 0
-            ? buildNewCategories(
-                parentId,
-                [
-                  ...cat.children,
-                  {
-                    _id: category._id,
-                    name: category.name,
-                    parentId: category.parentId,
-                    slug: category.slug,
-                    children: category.children,
-                  },
-                ],
-                category,
-              )
-            : [],
+        children: cat.children
+          ? buildNewCategories(
+              parentId,
+              [
+                ...cat.children,
+                {
+                  _id: category._id,
+                  name: category.name,
+                  parentId: category.parentId,
+                  slug: category.slug,
+                  children: category.children,
+                },
+              ],
+              category,
+            )
+          : [],
       });
-      console.log('flag1');
     } else {
       myCategories.push({
         ...cat,
-        children:
-          cat.children && cat.children.length > 0
-            ? buildNewCategories(parentId, cat.children, category)
-            : [],
+        children: cat.children
+          ? buildNewCategories(parentId, cat.children, category)
+          : [],
       });
-      console.log('flag2');
     }
   }
   return myCategories;

@@ -10,19 +10,36 @@ const Layout = (props: any) => {
       {props.sidebar ? (
         <div className="subContainer">
           <div className="sideBar">
-            <NavLink className="sidebarLink" to={'/'}>
+            <NavLink
+              className="sidebarLink"
+              activeClassName="selected"
+              to={'/'}
+              exact
+            >
               Home
             </NavLink>
 
-            <NavLink className="sidebarLink" to={'/category'}>
+            <NavLink
+              className="sidebarLink"
+              to={'/category'}
+              activeClassName="selected"
+            >
               Categories
             </NavLink>
 
-            <NavLink className="sidebarLink" to={'/Products'}>
+            <NavLink
+              className="sidebarLink"
+              to={'/Products'}
+              activeClassName="selected"
+            >
               Products
             </NavLink>
 
-            <NavLink className="sidebarLink" to={'/Orders'}>
+            <NavLink
+              className="sidebarLink "
+              to={'/Orders'}
+              activeClassName="selected"
+            >
               Orders
             </NavLink>
           </div>

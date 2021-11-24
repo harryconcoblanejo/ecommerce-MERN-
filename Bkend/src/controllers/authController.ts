@@ -31,7 +31,7 @@ export const signUp = async (req: Request, res: Response) => {
   const savedUser = await newUser.save();
 
   const token: string = jwt.sign({ id: savedUser._id }, config.SECRET_KEY, {
-    expiresIn: "1h",
+    expiresIn: "1d",
   });
   res.json({ token, savedUser, message: "user created!" });
 };

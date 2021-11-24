@@ -9,6 +9,7 @@ import authRoutes from "./routes/auth.routes";
 import categorysRoutes from "./routes/categories.routes";
 import cartRoutes from "./routes/cart.routes";
 import mercadoPagoRoutes from "./routes/mercadoPago.routes";
+import initialDataRoutes from "./routes/admin/initialData";
 
 const app = express();
 
@@ -31,5 +32,6 @@ app.use(authRoutes);
 app.use(categorysRoutes);
 app.use(cartRoutes);
 app.use(mercadoPagoRoutes);
+app.use(initialDataRoutes);
 
 export default app;

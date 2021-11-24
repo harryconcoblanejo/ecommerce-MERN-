@@ -57,6 +57,11 @@ const Products = () => {
     setActiveForm(false);
   };
 
+  const showForm = () => {
+    console.log('showing form...');
+    setActiveForm(true);
+  };
+
   const createCategoryList = (categories: any[], options: any = []) => {
     for (let category of categories) {
       options.push({
@@ -72,14 +77,43 @@ const Products = () => {
 
     return options;
   };
-
+  const renderProducts = () => {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Product Description</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2</td>
+            <td>name</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Product Description</td>
+            <td>Category</td>
+          </tr>
+        </tbody>
+      </table>
+    );
+  };
   return (
     <Layout sidebar>
       <div className="productsContainer">
         <h3> My Products</h3>
 
+        <span onClick={() => showForm()} className="addProductButton">
+          Add Product
+        </span>
+        {renderProducts()}
         <form
-          className="addProduct"
+          className={activeForm == true ? '' : 'hidenForm'} // realizar estilos formulario
           encType="multipart/form-data" /* onSubmit={#} */
           onSubmit={handleSubmit}
         >
